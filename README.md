@@ -14,13 +14,17 @@ The various notebooks provided in this repo show how Featuretools:
 [Featuretools](https://www.featuretools.com/) is a framework to perform automated feature engineering. It excels at transforming transactional and relational datasets into feature matrices for machine learning.
 
 The notebooks here show how Featuretools:
- * Simplifies data science-related code
- * Enables us to ask innovative questions
- * Avoid classic label-leakage problems
- * Exhaustively generate thousands of features
- * Easily combine separate dataset into joint models
+ * Simplifies data science-related code ([this](Baseline Solutions.ipynb))
+ * Enables us to ask innovative questions ([this](FeaturetoolsPredictiveModelingSimple.ipynb))
+ * Avoid classic label-leakage problems ([this](FeaturetoolsPredictiveModelingSimple.ipynb))
+ * Exhaustively generate thousands of features ([this](FeaturetoolsPredictiveModelingSimple.ipynb))
+ * Easily combine separate dataset into joint models (Coming soon)
 
 We do so by investigating the medals won by each country at each historical Olympic Games (dataset pulled from [Kaggle](kaggle.com/the-guardian/olympic-games)).
+
+The dataset contains each medal won at each Olympic Games, including the medaling athlete, his or her gender, and his or her country and sport.
+
+I'll generate a model using Featuretools that predicts the number of medals a country will win at the next Olympics, compare it to 2 baseline solutions without Featuretools, and provide analysis of various predictive factors.
 
 ## Installation
 
