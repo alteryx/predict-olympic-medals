@@ -40,13 +40,13 @@ Notebooks 4, 5 and 6 will require the following additional datasets:
 #### Featuretools Basics: FeaturetoolsPredictiveModelingSimple.ipynb
 
 In this notebook, I'll explain how to use out-of-the-box methods from Featuretools to transform the raw Olympics dataset into a machine-learning-ready feature matrix.
-Along the way, we'll build some machine learning models, explore which features were the most predictive, and make some interesting predictions.
+Along the way, I'll build some machine learning models, explore which features were the most predictive, and make some interesting predictions.
 
 #### Baselines using Featuretools: BaselineSolutions.ipynb
 
 Machine learning performance scores should never be taken at face value.
 To have any merit, they must be compared against a simple baseline model to see how much improvement they produced.
-In this notebook, we'll examine several baseline solutions, and see how much simpler the code to produce these baselines is when using Featuretools as compared to lower-level libraries.
+In this notebook, I'll examine several baseline solutions, and see how much simpler the code to produce these baselines is when using Featuretools as compared to lower-level libraries.
 
 #### [Coming soon] Generating Labels (Prediction Engineering)
 
