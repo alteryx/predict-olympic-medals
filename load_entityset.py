@@ -4,12 +4,8 @@ import os
 
 
 def load_entityset(data_dir='~/olympic_games_data',
-                   with_econ_data=False,
-                   with_region_data=False,
-                   countries_known_for_subsequent_games=False,
-                   econ_path='~/olympic_games_data/economic_data/',
-                   region_path='~/olympic_games_data/economic_data/',
-                   since_date=None):
+                   with_next_competing_info=False,
+                   competing_countries_file='~/olympic_games_data/competing_countries_formatted.csv'):
     '''
     1. Load data on each medal won at every summer Olympic Games
     2. Load data about each country that won at least one medal through Olympic history
@@ -68,8 +64,6 @@ def load_entityset(data_dir='~/olympic_games_data',
     # winter['Games Type'] = 'Winter'
     # medals_won = pd.concat([summer, winter]).sort_values(['Year'])
     medals_won = summer.sort_values(['Year'])
-    if since_date is not None:
-        medals_won = medals_won[medals_won['Year'] >= since_date]
 
     # Step 5
     medals_won['Olympic Games Name'] = medals_won['City'].str.cat(
@@ -95,6 +89,22 @@ def load_entityset(data_dir='~/olympic_games_data',
     # There were 2 duplicate athlete entries in the data, get rid of them
     athletes_at_olympic_games.drop_duplicates(['Athlete Medal ID'], inplace=True)
 
+    if with_next_competing_info:
+        countries_competing = pd.read_csv('/Users/bschreck/olympic_games_data/competing_countries_formatted.csv',
+                                          encoding='utf-8', index_col=0)
+        stacked = countries_competing.stack()
+        def add_years(dt, num):
+            year = dt.year + num
+            return pd.Timestamp(year=year, month=dt.month, day=dt.day)
+        medals_won['NextYear'] = medals_won['Year'].apply(lambda dt: add_years(dt, 4))
+        stacked.index.names = ['Code', 'NextYear']
+        stacked.name = 'CompetedNextOlympics'
+        unstacked = stacked.reset_index(drop=False)
+        medals_won = medals_won.merge(unstacked, left_on=['Country', 'NextYear'], right_on=['Code', 'NextYear'], how='left')
+        medals_won['CompetedNextOlympics'] = medals_won['CompetedNextOlympics'].astype(bool)
+        del medals_won['NextYear']
+
+
     # Step 7
     es = ft.EntitySet("Olympic Games")
     es.entity_from_dataframe(
@@ -116,15 +126,19 @@ def load_entityset(data_dir='~/olympic_games_data',
         make_time_index=True,
         new_entity_time_index='Year of First Medal',
         additional_variables=['Gender'])
+
+    additional_variables = ['City', 'Olympic Games Name', 'Olympic Games ID', 'Country']
+    if with_next_competing_info:
+        additional_variables.append('CompetedNextOlympics')
     es.normalize_entity(
         base_entity_id="medals_won",
         new_entity_id="countries_at_olympic_games",
         index="Country Olympic ID",
         make_time_index=True,
         new_entity_time_index='Year',
-        additional_variables=[
-            'City', 'Olympic Games Name', 'Olympic Games ID', 'Country'
-        ])
+        additional_variables=additional_variables)
+
+
     es.normalize_entity(
         base_entity_id="countries_at_olympic_games",
         new_entity_id="olympic_games",
@@ -192,8 +206,6 @@ def load_entityset(data_dir='~/olympic_games_data',
 
     es.add_relationships(relationships)
 
-    if countries_known_for_subsequent_games:
-        es['countries_at_olympic_games'].df['Year'] -= pd.Timedelta('7 days')
     es.add_interesting_values()
     return es
 
