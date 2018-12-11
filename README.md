@@ -1,9 +1,10 @@
+# Investigating Medals at the Olympic Games using Featuretools
 <p style="margin:30px\"> 
 <img width=50% src="https://www.featuretools.com/wp-content/uploads/2017/12/FeatureLabs-Logo-Tangerine-800.png" alt="Featuretools" />
 </p>
 <p align="center"> 
+    
 
-# Investigating Medals at the Olympic Games using Featuretools
 ##### [Goals](#goals) | [Installation](#installation) | [Featuretools Basics](#featuretools-basics-featuretoolspredictivemodelingipynb) | [Baselines using Featuretools](#baselines-using-featuretools-baselinesolutionipynb) | [Results](#overview-of-results)
 <!--| [Generating Labels](##[Coming soon] Generating Labels (Prediction Engineering))
 | [Deeper Exploration](#[Coming soon] Deeper Exploration)
