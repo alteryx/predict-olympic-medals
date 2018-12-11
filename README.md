@@ -90,3 +90,14 @@ The prediction problem we've defined is fairly easy to solve. What this means is
 Using a limited feature set allows us to make good comparisons between different types of features.
 For instance, we'll investigate how using only economic features shows us which economic indicators are most important (at least for determining the outcome of the Olympics) at different times in history.
 -->
+
+## Feature Labs
+<a href="https://www.featurelabs.com/">
+    <img src="http://www.featurelabs.com/wp-content/uploads/2017/12/logo.png" alt="Featuretools" />
+</a>
+
+Featuretools is an open source project created by [Feature Labs](https://www.featurelabs.com/). To see the other open source projects we're working on visit Feature Labs [Open Source](https://www.featurelabs.com/open). If building impactful data science pipelines is important to you or your business, please [get in touch](https://www.featurelabs.com/contact.html).
+
+### Contact
+
+Any questions can be directed to help@featurelabs.com
