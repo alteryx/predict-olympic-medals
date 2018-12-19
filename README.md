@@ -1,9 +1,9 @@
 # Predict how many medals a country will win at the Olympics using automated feature engineering
 
-<p style="margin:30px\">
-<img width=50% src="https://www.featuretools.com/wp-content/uploads/2017/12/FeatureLabs-Logo-Tangerine-800.png" alt="Featuretools" />
-</p>
-<p align="center">
+
+<a style="margin:30px" href="https://www.featuretools.com">
+    <img width=50% src="https://www.featuretools.com/wp-content/uploads/2017/12/FeatureLabs-Logo-Tangerine-800.png" alt="Featuretools" />
+</a>
 
 We will investigate the medals won by each country at each historical Olympic Games (dataset pulled from [Kaggle](https://www.kaggle.com/the-guardian/olympic-games)). The dataset contains each medal won at each Olympic Games, including the medaling athlete, their gender, and their country and sport.
 
