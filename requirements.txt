@@ -1,3 +1,4 @@
 featuretools>=0.1.12
-scikit-learn>=0.19.0
+jupyter==1.0.0
 matplotlib>=2.1.0
+scikit-learn>=0.19.0
