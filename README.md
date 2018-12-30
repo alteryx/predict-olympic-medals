@@ -35,12 +35,15 @@ We will generate a model using Featuretools that predicts whether or not a count
     After downloading the data Copy the three csv files into the structure directory `data/olympic_games_data/` in the root of this repository.
 
 4. Run the notebooks:
-    - [BaselineSolution](BaselineSolution.ipynb)
-    - [PredictOlympicMedals](PredictOlympicMedals.ipynb)
 
     ```
     jupyter notebook
     ```
+    
+    - [BaselineSolution](BaselineSolution.ipynb)
+    - [PredictOlympicMedals](PredictOlympicMedals.ipynb)
+
+
 
 ## Feature Labs
 <a href="https://www.featurelabs.com/">
