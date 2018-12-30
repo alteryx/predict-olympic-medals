@@ -10,7 +10,7 @@ We will investigate the medals won by each country at each historical Olympic Ga
 We will generate a model using Featuretools that predicts whether or not a country will score more than 10 medals at the next Olympics. While it's possible to have some predictive accuracy without machine learning, feature engineering is necessary to improve the score.
 
 ## Highlights
-- We make predictions for the medals won at various points throughout history. Using just the average number of medals won has an average AUC score of 0.74.
+- We make predictions for the medals won at various points throughout history. Using just the average number of medals won has an average AUC score of 0.79.
 - Use automated feature engineering, to generate hundred of features and improve the score to 0.95 on average
 
 
@@ -32,11 +32,15 @@ We will generate a model using Featuretools that predicts whether or not a count
 
     You can download the data directly from [Kaggle](https://www.kaggle.com/the-guardian/olympic-games/data).
 
-    After downloading the data Copy the three csv files into a directory called `data` in the root of this repository.
+    After downloading the data Copy the three csv files into the structure directory `data/olympic_games_data/` in the root of this repository.
 
 4. Run the notebooks:
     - [BaselineSolution](BaselineSolution.ipynb)
     - [PredictOlympicMedals](PredictOlympicMedals.ipynb)
+
+    ```
+    jupyter notebook
+    ```
 
 ## Feature Labs
 <a href="https://www.featurelabs.com/">
