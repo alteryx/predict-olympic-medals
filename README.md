@@ -10,7 +10,7 @@ We will investigate the medals won by each country at each historical Olympic Ga
 We will generate a model using Featuretools that predicts whether or not a country will score more than 10 medals at the next Olympics. While it's possible to have some predictive accuracy without machine learning, feature engineering is necessary to improve the score.
 
 ## Highlights
-- We make predictions for the medals won at various points throughout history. Using just the average number of medals won has an average AUC score of 0.74.
+- We make predictions for the medals won at various points throughout history. Using just the average number of medals won has an average AUC score of 0.79.
 - Use automated feature engineering, to generate hundred of features and improve the score to 0.95 on average
 
 
@@ -32,18 +32,25 @@ We will generate a model using Featuretools that predicts whether or not a count
 
     You can download the data directly from [Kaggle](https://www.kaggle.com/the-guardian/olympic-games/data).
 
-    After downloading the data Copy the three csv files into a directory called `data` in the root of this repository.
+    After downloading the data Copy the three csv files into the structure directory `data/olympic_games_data/` in the root of this repository.
 
 4. Run the notebooks:
+
+    ```
+    jupyter notebook
+    ```
+
     - [BaselineSolution](BaselineSolution.ipynb)
     - [PredictOlympicMedals](PredictOlympicMedals.ipynb)
+
+
 
 ## Feature Labs
 <a href="https://www.featurelabs.com/">
     <img src="http://www.featurelabs.com/wp-content/uploads/2017/12/logo.png" alt="Featuretools" />
 </a>
 
-Featuretools is an open source project created by [Feature Labs](https://www.featurelabs.com/). To see the other open source projects we're working on visit Feature Labs [Open Source](https://www.featurelabs.com/open). If building impactful data science pipelines is important to you or your business, please [get in touch](https://www.featurelabs.com/contact.html).
+Featuretools is an open source project created by [Feature Labs](https://www.featurelabs.com/). To see the other open source projects we're working on visit Feature Labs [Open Source](https://www.featurelabs.com/open). If building impactful data science pipelines is important to you or your business, please [get in touch](https://www.featurelabs.com/contact/).
 
 ### Contact
 
