@@ -154,7 +154,7 @@ def load_entityset(data_dir='~/olympic_games_data',
             'Country': ['Unknown', 'Mixed Team'],
             'Code': ['UNK', 'ZZX']
         }),
-        ignore_index=True)
+        ignore_index=True, sort=True)
 
     # Step 3
     # Make names First Last instead of Last, First?
@@ -278,13 +278,13 @@ def load_entityset(data_dir='~/olympic_games_data',
         u'Developed / Developing Countries', u'IncomeGroup'
     ]
     similar_countries = mapping['Code']
-    similar = countries.loc[countries['Code'].isin(similar_countries),
-                            columns_to_pull_from_similar]
+    similar = countries.loc[countries['Code'].isin(similar_countries)] \
+                       .reindex(columns=columns_to_pull_from_similar)
     similar = similar.merge(
         mapping, on='Code', how='outer').drop(
             ['Code'], axis=1).rename(columns={'NewCode': 'Code'})
     countries = countries.append(
-        similar, ignore_index=True).reset_index(drop=True)
+        similar, ignore_index=True, sort=True).reset_index(drop=True)
 
     es.entity_from_dataframe("countries", countries, index="Code")
 
@@ -436,7 +436,7 @@ class TimeSeriesSplitByDate(object):
                         for _last, _pen in zip(last, penultimate):
                             combined.append(
                                 pd.concat([pd.Series(_last),
-                                           pd.Series(_pen)]).drop_duplicates()
+                                           pd.Series(_pen)], sort=True).drop_duplicates()
                                 .sort_values())
                         self.splits.append(combined)
             return self.splits
@@ -475,7 +475,7 @@ class TimeSeriesSplitByDate(object):
         div = math.ceil(len(date_index) / (self.nominal_n_splits + 1))
         date_index['split'] = (date_index['split'] / (div)).astype(int)
         if self.earliest_date:
-            date_index = pd.concat([early_date_index, date_index])
+            date_index = pd.concat([early_date_index, date_index], sort=True)
         self.split_index = self.dates.merge(
             date_index, on=self.date_name, how='left')
         self.split_index.index = range(self.split_index.shape[0])

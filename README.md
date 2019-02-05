@@ -27,7 +27,9 @@ We will generate a model using Featuretools that predicts whether or not a count
     ```
     pip install -r requirements.txt
     ```
-
+    
+    *You will also need to install **graphviz** for this demo. Please install graphviz according to the instructions in the [Featuretools Documentation](https://docs.featuretools.com/getting_started/install.html)*
+    
 3. Download the data
 
     You can download the data directly from [Kaggle](https://www.kaggle.com/the-guardian/olympic-games/data).
